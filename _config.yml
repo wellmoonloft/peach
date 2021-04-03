@@ -18,12 +18,12 @@
 # 网站图标
 favicon:
   enable: true
-  icon: /images/favicon.jpeg
-  touch_icon: /images/favicon.jpeg
+  icon: https://cdn.jsdelivr.net/gh/wellmoonloft/peach@v0.0.2/source/images/favicon.jpeg
+  touch_icon: https://cdn.jsdelivr.net/gh/wellmoonloft/peach@v0.0.2/source/images/favicon.jpeg
 
 # 用户头像与昵称
 avatar:
-  author_photo: /images/avatar.jpeg
+  author_photo: https://cdn.jsdelivr.net/gh/wellmoonloft/peach@v0.0.2/source/images/avatar.jpeg
   author_nickname: 老井杂谈
   path: /
 
