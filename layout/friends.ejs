@@ -1,0 +1,21 @@
+<!-- 朋友页 url形式：https://yoursite/friends/ -->
+<div class="container friend-index">
+  <div class="friend-list">
+    <% for(let friend of theme.friends) { %>
+      <div class="friend-list-item">
+        <span class="nickname">@ <%- friend.nickname %></span>
+        <a href="<%- friend.site %>" target="_blank">
+          <span class="site-path">
+            <%- friend.site %>
+          </span>
+        </a>
+        <p class="card-meta">
+          <%- friend.meta %>
+        </p>
+      </div>
+      <% } %>
+  </div>
+  <div class="markdown-body">
+    <%- page.content %>
+  </div>
+</div>
