@@ -18,12 +18,12 @@
 # 网站图标
 favicon:
   enable: true
-  icon: https://cdn.jsdelivr.net/gh/wellmoonloft/peach@v0.0.2/source/images/favicon.jpeg
-  touch_icon: https://cdn.jsdelivr.net/gh/wellmoonloft/peach@v0.0.2/source/images/favicon.jpeg
+  icon: https://cdn.jsdelivr.net/gh/wellmoonloft/peach@v0.0.3/source/images/fang.jpg
+  touch_icon: https://cdn.jsdelivr.net/gh/wellmoonloft/peach@v0.0.3/source/images/fang.jpg
 
 # 用户头像与昵称
 avatar:
-  author_photo: https://cdn.jsdelivr.net/gh/wellmoonloft/peach@v0.0.2/source/images/avatar.jpeg
+  author_photo: https://cdn.jsdelivr.net/gh/wellmoonloft/peach@v0.0.3/source/images/fang.jpg
   author_nickname: 老井杂谈
   path: /
 
@@ -32,7 +32,7 @@ avatar:
 # 注册Google分析账号，在管理/创建媒体资源/选择网站/填写相关信息后得到跟踪Id，一般格式为UA-xxxxxxx-x
 # 如之前已有注册账号，在管理/跟踪信息/跟踪代码/找到跟踪ID，一般格式为UA-xxxxxxx-x
 gtag:
-  enable: true
+  enable: false
   gtagkey: G-R4XRTRGM56
 
 # 文章评论系统
