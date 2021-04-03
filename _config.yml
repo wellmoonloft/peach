@@ -78,22 +78,17 @@ navbar:
     key: home
   -
     name: 碎碎念
-    enable: true
+    enable: false
     path: /gossip/
     key: gossip    
   -
-    name: 归档
-    enable: false
-    path: /archives/
-    key: archives
-  -
     name: 分类
-    enable: true
+    enable: false
     path: /categories/
     key: categories
   -
     name: 标签
-    enable: true
+    enable: false
     path: /tags/
     key: tags   
   -
