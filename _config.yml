@@ -18,13 +18,13 @@
 # 网站图标
 favicon:
   enable: true
-  icon: /images/favicon.png
-  touch_icon: /images/favicon.png
+  icon: https://cdn.jsdelivr.net/gh/wellmoonloft/peach@v0.0.3/source/images/fang.jpg
+  touch_icon: https://cdn.jsdelivr.net/gh/wellmoonloft/peach@v0.0.3/source/images/fang.jpg
 
 # 用户头像与昵称
 avatar:
-  author_photo: /images/avatar.png
-  author_nickname: 桃子
+  author_photo: https://cdn.jsdelivr.net/gh/wellmoonloft/peach@v0.0.3/source/images/fang.jpg
+  author_nickname: 老井杂谈
   path: /
 
 # Google 分析
@@ -32,12 +32,12 @@ avatar:
 # 注册Google分析账号，在管理/创建媒体资源/选择网站/填写相关信息后得到跟踪Id，一般格式为UA-xxxxxxx-x
 # 如之前已有注册账号，在管理/跟踪信息/跟踪代码/找到跟踪ID，一般格式为UA-xxxxxxx-x
 gtag:
-  enable: false
-  gtagkey: ''
+  enable: true
+  gtagkey: G-R4XRTRGM56
 
 # 文章评论系统
 comments:
-  enable: false
+  enable: true
   # 目前仅支持gitalk, valine, disqus评论，选择喜欢的一种开启即可
 
   gitalk:
@@ -54,9 +54,9 @@ comments:
   valine:
     # https://valine.js.org/quickstart.html#%E8%8E%B7%E5%8F%96APP-ID-%E5%92%8C-APP-Key
     # 进入以上网址查看官方教程
-    enable: false
-    appId: 
-    appKey: 
+    enable: true
+    appId: mHgw3YbXtcTnEXgLbopbas3D-gzGzoHsz
+    appKey: 9VXFCLVhgmg2HtPaPDS6RMWj
     placeholder: Welcome!
     avatar: retro
     vempty_display: false
@@ -67,7 +67,7 @@ comments:
     # 注册账号，获取shortname.disqus.com，shortname为你定义的唯一name
     # 例：我注册配置完毕后的网址为zxcxxxx.disqus.com，https-zxcxxxx-github-io即为shortname
     enable: false
-    shortname: 
+    shortname: wellmoonloft
 
 # 主题页面导航栏
 navbar:
@@ -78,17 +78,22 @@ navbar:
     key: home
   -
     name: 碎碎念
-    enable: false
+    enable: true
     path: /gossip/
     key: gossip    
   -
-    name: 分类
+    name: 归档
     enable: false
+    path: /archives/
+    key: archives
+  -
+    name: 分类
+    enable: true
     path: /categories/
     key: categories
   -
     name: 标签
-    enable: false
+    enable: true
     path: /tags/
     key: tags   
   -
@@ -115,10 +120,6 @@ friends:
   # nickname: 昵称
   # site: 地址
   # meta: 描述
-  -
-    nickname: wellmoonloft
-    site: https://www.igerm.ee/
-    meta:  
   -
     nickname: Zcheng
     site: https://zcheng.site/
