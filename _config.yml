@@ -25,7 +25,7 @@ favicon:
 avatar:
   author_photo: https://cdn.jsdelivr.net/gh/wellmoonloft/peach@v0.0.3/source/images/fang.jpg
   author_nickname: 老井杂谈
-  path: /
+  path: https://www.igerm.ee
 
 # Google 分析
 # https://analytics.google.com
@@ -77,9 +77,9 @@ navbar:
     path: /
     key: home
   -
-    name: 碎碎念
+    name: 说说
     enable: true
-    path: /categories/%E7%A2%8E%E7%A2%8E%E5%BF%B5/
+    path: /categories/说说/
     key: gossip    
   -
     name: 归档

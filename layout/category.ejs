@@ -2,7 +2,7 @@
 
 <div class="container category-details">
   <% 
-    if(page.category != "碎碎念"){
+    if(page.category != "说说"){
   %>
   <div class="content-title">
     <h2>
@@ -50,13 +50,13 @@
     <div class="post-list">
       <div class="gossip-item">
         <div class="time-gossip">
+          <%- item.more %>
+        </div>
+        <div class="time-gossip">
           <h4>
           <%- item.date.format("MM-DD HH:mm:ss") %>
           </h4>
-        </div>
-        <div class="time-gossip">
-          <%- item.more %>
-        </div>
+        </div>        
       </div>  
     </div>
   <% }) %>

@@ -19,7 +19,6 @@ body.hidden {
   margin: 0 auto;
 }
 
-/*控制整个滚动条*/
 ::-webkit-scrollbar {
     background-color: transparent;
     width: 6px;
@@ -27,7 +26,6 @@ body.hidden {
     background-clip: padding-box;
 }
 
-/*滚动条中滑块部分*/
 ::-webkit-scrollbar-thumb {
   background-color: rgba(144,147,153,.5);
   border-radius: 5px;
@@ -55,7 +53,6 @@ a:hover {
   flex-direction: column;
   justify-content: space-between;
   margin-left: calc(100vw - 100%);
-  /*transition: all 0.3s ease;*/
 }
 
 .header {
@@ -134,7 +131,6 @@ a:hover {
   color: #666;
   font-size: 1.5rem;
   line-height: 21px;
-  /*font-family: 'Raleway', 'Helvetica Neue', 'Arial', sans-serif;*/
 }
 
 .gossip-item .time-gossip {
@@ -142,15 +138,13 @@ a:hover {
   color: #666;
   font-size: 1.5rem;
   margin-left: 30px;
-  margin-bottom: 4px;
-  /*font-family: 'Raleway', 'Helvetica Neue', 'Arial', sans-serif;*/
+  margin-top: 4px;
 }
 
 .gossip-item .content-gossip {
   color: #666;
   font-size: 1.5rem;
   margin-left: 30px;
-  /*font-family: 'Raleway', 'Helvetica Neue', 'Arial', sans-serif;*/
 }
 
 .post-item .title {
@@ -201,7 +195,6 @@ a:hover {
   font-size: 1.6rem;
   color: #666;
   margin-bottom: 20px;
-  /*font-family: 'Raleway', 'Helvetica Neue', 'Arial', sans-serif;*/
 }
 
 .navbar {
@@ -327,31 +320,6 @@ a:hover {
   padding: 0 2px;
   border-radius: 2px;
 }
-
-/*.tag-list li .tag-list-link:hover {
-  color: #fff;
-}*/
-
-/*.tag-list li .tag-list-link::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: -2px;
-  right: -2px;
-  transition: transform 0.1s linear;
-  background: gray;
-  opacity: 0.8;
-  transform: scaleX(0);
-  transform-origin: right;
-  z-index: -1;
-  border-radius: 2px;
-}
-
-.tag-list li .tag-list-link:hover::after {
-  transform: scaleX(1);
-  transform-origin: left;
-}*/
 
 .tag-list-count, .category-list-count {
   padding: 0 5px;
