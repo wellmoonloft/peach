@@ -79,7 +79,7 @@ navbar:
   -
     name: 碎碎念
     enable: true
-    path: /gossip/
+    path: /categories/%E7%A2%8E%E7%A2%8E%E5%BF%B5/
     key: gossip    
   -
     name: 归档

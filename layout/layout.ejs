@@ -1,12 +1,9 @@
 <!DOCTYPE html>
 <html lang="<%= config.language %>">
-
 <%- partial('_partial/header') %>
-
   <body>
     <div id="app">
-      <%- partial('_partial/navigation') %>
-        
+      <%- partial('_partial/navigation') %>       
       <div class="flex-container">
           <% if (page.type==="tags" ) { %>
             <div class="container tag-index">
@@ -35,12 +32,8 @@
           <%- body %>
           <%- partial('_partial/footer') %>
       </div>
-
       <%- partial('_partial/backtotop') %>
-
       <%- partial('_partial/search') %>
-
     </div>
   </body>
-
 </html>
