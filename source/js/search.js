@@ -1,35 +1,40 @@
-// A local search script with the help of [hexo-generator-search](https://github.com/PaicHyperionDev/hexo-generator-search)
-// Copyright (C) 2017 
-// Liam Huang <http://github.com/Liam0205>
-// This library is free software; you can redistribute it and/or modify
-// it under the terms of the GNU Lesser General Public License as
-// published by the Free Software Foundation; either version 2.1 of the
-// License, or (at your option) any later version.
-// 
-// This library is distributed in the hope that it will be useful, but
-// WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
-// Lesser General Public License for more details.
-// 
-// You should have received a copy of the GNU Lesser General Public
-// License along with this library; if not, write to the Free Software
-// Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA
-// 02110-1301 USA
-// 
-
+var inputArea = document.querySelector("#search-input")
+var searchOverlayArea = document.querySelector(".search-overlay")
+inputArea.onclick = function() {
+  getSearchFile()
+  this.onclick = null
+}
+inputArea.onkeydown = function() {
+  if(event.keyCode == 13)
+    return false
+}
+function openOrHideSearchContent() {
+  let isHidden = searchOverlayArea.classList.contains('hidden')
+  if (isHidden) {
+    searchOverlayArea.classList.remove('hidden')
+    document.body.classList.add('hidden')
+  } else {
+    searchOverlayArea.classList.add('hidden')
+    document.body.classList.remove('hidden')
+  }
+}
+function blurSearchContent(e) {
+  if (e.target === searchOverlayArea) {
+    openOrHideSearchContent()
+  }
+}
+document.querySelector("#search-icon").addEventListener("click", openOrHideSearchContent, false)
+document.querySelector("#search-close-icon").addEventListener("click", openOrHideSearchContent, false)
+searchOverlayArea.addEventListener("click", blurSearchContent, false)
 var searchFunc = function (path, search_id, content_id) {
-  // 0x00. environment initialization
   'use strict';
-  // var "<i id='local-search-close'>×</i>";
   var $input = document.getElementById(search_id);
   var $resultContent = document.getElementById(content_id);
   $resultContent.innerHTML = "<ul><span class='local-search-empty'>首次搜索，正在载入索引文件，请稍后……<span></ul>";
   $.ajax({
-    // 0x01. load xml file
     url: path,
     dataType: "xml",
     success: function (xmlResponse) {
-      // 0x02. parse xml file
       var datas = $("entry", xmlResponse).map(function () {
         return {
           title: $("title", this).text(),
@@ -38,16 +43,13 @@ var searchFunc = function (path, search_id, content_id) {
         };
       }).get();
       $resultContent.innerHTML = "";
-
       $input.addEventListener('input', function () {
-        // 0x03. parse query to keywords list
         var str = '<ul class=\"search-result-list\">';
         var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
         $resultContent.innerHTML = "";
         if (this.value.trim().length <= 0) {
           return;
         }
-        // 0x04. perform local searching
         datas.forEach(function (data) {
           var isMatch = true;
           var content_index = [];
@@ -62,7 +64,6 @@ var searchFunc = function (path, search_id, content_id) {
           var index_title = -1;
           var index_content = -1;
           var first_occur = -1;
-          // only match artiles with not empty contents
           if (data_content !== '') {
             keywords.forEach(function (keyword, i) {
               index_title = data_title.indexOf(keyword);
@@ -77,41 +78,35 @@ var searchFunc = function (path, search_id, content_id) {
                 if (i == 0) {
                   first_occur = index_content;
                 }
-                // content_index.push({index_content:index_content, keyword_len:keyword_len});
               }
             });
           } else {
             isMatch = false;
           }
-          // 0x05. show search results
           if (isMatch) {
-            str += "<li><a href='" + "https://www.igerm.ee/" + data_url + "' class='search-result-title'>" + orig_data_title + "</a>";
+            var xx = data_url.slice(0,1);
+            if(xx != "/"){
+              data_url = "/" + data_url;
+            }
+            str += "<li><a href='" + "https://www.igerm.ee" + data_url + "' class='search-result-title'>" + orig_data_title + "</a>";
             var content = orig_data_content;
             if (first_occur >= 0) {
-              // cut out 100 characters
               var start = first_occur - 20;
               var end = first_occur + 80;
-
               if (start < 0) {
                 start = 0;
               }
-
               if (start == 0) {
                 end = 100;
               }
-
               if (end > content.length) {
                 end = content.length;
               }
-
               var match_content = content.substr(start, end);
-
-              // highlight all keywords
               keywords.forEach(function (keyword) {
                 var regS = new RegExp(keyword, "gi");
                 match_content = match_content.replace(regS, "<span class=\"search-keyword\">" + keyword + "</span>");
               });
-
               str += "<p class=\"search-result-abstract\">" + match_content + "...</p>"
             }
             str += "</li>";
@@ -123,6 +118,14 @@ var searchFunc = function (path, search_id, content_id) {
         }
         $resultContent.innerHTML = str;
       });
+    },
+    error: function(xhr, status, error) {
+      $resultContent.innerHTML = ""
+      if (xhr.status === 404) {
+        $resultContent.innerHTML = "<ul><span class='local-search-empty'>未找到search.xml文件，具体请参考：<a href='https://github.com/zchengsite/hexo-theme-oranges#configuration' target='_black'>configuration</a><span></ul>";
+      } else {
+        $resultContent.innerHTML = "<ul><span class='local-search-empty'>请求失败，尝试重新刷新页面或稍后重试。<span></ul>";
+      }
     }
   });
   $(document).on('click', '#search-close-icon', function() {
@@ -130,8 +133,12 @@ var searchFunc = function (path, search_id, content_id) {
     $('#search-result').html('');
   });
 }
-
-var getSearchFile = function(){
-    var path = "/search.xml";
-    searchFunc(path, 'search-input', 'search-result');
+var getSearchFile = function() {
+  var path = "";
+  if ("zh-CN" == "en") { 
+    path = "/en/search.xml";
+  }else{
+    path = "/search.xml";
+  }
+  searchFunc(path, 'search-input', 'search-result');
 }
