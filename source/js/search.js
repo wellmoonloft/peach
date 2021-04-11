@@ -135,7 +135,7 @@ var searchFunc = function (path, search_id, content_id) {
 }
 var getSearchFile = function() {
   var path = "";
-  if ("zh-CN" == "en") { 
+  if (document.documentElement.lang == "en") { 
     path = "/en/search.xml";
   }else{
     path = "/search.xml";
