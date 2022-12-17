@@ -1,23 +1,39 @@
+# 相关配置说明
+  # favicon: 网站图标
+  # avatar: 主题用户头像与昵称
+  # rss: rss订阅
+  # gtag: Google 分析
+  # comments: 文章评论系统
+    # gitalk
+    # disqus
+  # navbar: 主题页面导航栏
+  # catalog: 文章目录
+  # prevnext: 文章末尾的上一页与下一页
+  # friends: 友链
+  # footer: 页脚信息
+  # search: 文章搜索
+
+# enable: 是否开启相应功能，可选true || false
 
 # 网站图标
 favicon:
   enable: true
-  icon: https://i.loli.net/2021/04/10/bZ2e1lm7nRvStrG.jpg
-  touch_icon: https://i.loli.net/2021/04/10/bZ2e1lm7nRvStrG.jpg
+  icon: https://cdn.jsdelivr.net/gh/wellmoonloft/peach@v0.1.4/source/images/jing-min.jpeg
+  touch_icon: https://cdn.jsdelivr.net/gh/wellmoonloft/peach@v0.1.4/source/images/jing-min.jpeg
 
 # 用户头像与昵称
 avatar:
-  author_photo: https://i.loli.net/2021/04/10/bZ2e1lm7nRvStrG.jpg
+  author_photo: https://cdn.jsdelivr.net/gh/wellmoonloft/peach@v0.1.4/source/images/jing-min.jpeg
   author_nickname: Well Talk
-  path: https://www.igerm.ee/en/
+  path: https://www.igerm.ee
 
 # Google 分析
 # https://analytics.google.com
 # 注册Google分析账号，在管理/创建媒体资源/选择网站/填写相关信息后得到跟踪Id，一般格式为UA-xxxxxxx-x
 # 如之前已有注册账号，在管理/跟踪信息/跟踪代码/找到跟踪ID，一般格式为UA-xxxxxxx-x
 gtag:
-  enable: true
-  gtagkey: G-R4XRTRGM56
+  enable: false
+  gtagkey: 
 
 # 文章评论系统
 comments:
@@ -38,9 +54,9 @@ comments:
   valine:
     # https://valine.js.org/quickstart.html#%E8%8E%B7%E5%8F%96APP-ID-%E5%92%8C-APP-Key
     # 进入以上网址查看官方教程
-    enable: true
-    appId: mHgw3YbXtcTnEXgLbopbas3D-gzGzoHsz
-    appKey: 9VXFCLVhgmg2HtPaPDS6RMWj
+    enable: false
+    appId: 
+    appKey: 
     placeholder: Welcome!
     avatar: retro
     vempty_display: false
@@ -51,25 +67,28 @@ comments:
     # 注册账号，获取shortname.disqus.com，shortname为你定义的唯一name
     # 例：我注册配置完毕后的网址为zxcxxxx.disqus.com，https-zxcxxxx-github-io即为shortname
     enable: false
-    shortname: wellmoonloft
-
+    shortname: 
+ 
+  utterances:
+    enable: true
+    
 # 主题页面导航栏
 navbar:
   -
-    name: Home
+    name: Essay
     enable: true
     path: /en/
     key: home
   -
-    name: Gossip
+    name: Experience
     enable: true
-    path: /en/categories/gossip/
-    key: gossip  
+    path: /en/categories/experience/
+    key: experience     
   -
-    name: Essay
+    name: Novel
     enable: true
     path: /en/categories/novel/
-    key: novel      
+    key: novel           
   -
     name: Archives
     enable: false
@@ -82,7 +101,7 @@ navbar:
     key: categories
   -
     name: Tags
-    enable: true
+    enable: false
     path: /en/tags/
     key: tags   
   -
@@ -127,14 +146,14 @@ footer:
     # name: 名称
     # icon: 图标，目前仅支持IconFont部分图标
     # path: 地址
-    -
-      name: github
-      icon: github
-      path: https://github.com/wellmoonloft
-    -
-      name: email
-      icon: envelope
-      path: wellmoonloft@gmail.com
+    #-
+    #  name: github
+    #  icon: github
+    #  path: https://github.com/wellmoonloft
+    #-
+    #  name: email
+    #  icon: envelope
+    #  path: wellmoonloft@gmail.com
     # -
     #   name: facebook
     #   icon: facebooksquare
@@ -156,11 +175,11 @@ footer:
       # 具体参照https://github.com/hexojs/hexo-generator-feed
       name: rss
       icon: rss
-      path: en/atom.xml
+      path: /en/atom.xml
 
   more:
     -
-      name: Copyright © wellmoonloft 2021
+      name: Copyright © iGerm 2021
       path: https://www.igerm.ee/en/
     -
       name: Theme by Oranges ｜ Powered by Hexo

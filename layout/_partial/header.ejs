@@ -3,11 +3,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="keywords" content="<%= config.keywords %>" />
   <meta name="author" content="<%= config.author %>" />
+  <meta name="subtitle" content="<%= config.subtitle %>" />  
   <meta name="description" content="<%= config.description %>" />
-  <% if(is_home() && page.current > 1){ %>
-    <meta name="robots" content="noindex" />
-  <% } %>
-  <%
+  <% if(is_home() && page.current > 1){ %><meta name="robots" content="noindex" />
+  <% } 
     var title = page.title;
     if (is_archive()){
       title = 'archive_a';
@@ -25,67 +24,26 @@
     } else if (title === "about") {
       title = "about"
     } 
-  %>
-  <title>
-  <% if (title) { %>
-    <%= __(title) %> 
-    <% if (page.tag) { %> : <%= page.tag %><% } %>
-    <% if (page.category) { %> : <%= page.category %><% } %>
-      |
-  <% } %>
-  <%= config.title %>
-  </title>
-  <% if (theme.favicon.enable){ %>
+  %><title><% if (title) { %><%= __(title) %><% if (page.tag) { %> : <%= page.tag %><% } %><% if (page.category) { %> : <%= page.category %><% } %> | <% } %><%= config.title %></title><% if (theme.favicon.enable){ %>
   <link rel="apple-touch-icon" href="<%- theme.favicon.touch_icon %>">
-  <link rel="icon" href="<%- theme.favicon.icon %>">
-  <% } %>
+  <link rel="icon" href="<%- theme.favicon.icon %>"><% } %>
   <!-- jquery3.6 -->
-  <script async src="https://cdn.jsdelivr.net/gh/wellmoonloft/peach@v0.0.7/source/js/jquery.min-3.6.js"></script>
+  <script async src="https://cdn.jsdelivr.net/gh/wellmoonloft/peach@v0.1.4/source/js/jquery.min-3.6.js"></script>
   <!-- hexo site css -->
-  <link async href="https://cdn.jsdelivr.net/gh/wellmoonloft/peach@v0.0.7/source/css/base-min.css" rel="stylesheet">
-  <link async href="https://cdn.jsdelivr.net/gh/wellmoonloft/peach@v0.0.7/source/iconfont/iconfont-min.css" rel="stylesheet">
-  <link async href="https://cdn.jsdelivr.net/gh/wellmoonloft/peach@v0.0.7/source/css/github-markdown-min.css" rel="stylesheet">
-  <link async href="https://cdn.jsdelivr.net/gh/wellmoonloft/peach@v0.0.7/source/css/highlight-min.css" rel="stylesheet">  
+  <link async href="https://cdn.jsdelivr.net/gh/wellmoonloft/peach@v0.1.4/source/css/base-min.css" rel="stylesheet">
+  <link async href="https://cdn.jsdelivr.net/gh/wellmoonloft/peach@v0.1.4/source/iconfont/iconfont-min.css" rel="stylesheet">
+  <link async href="https://cdn.jsdelivr.net/gh/wellmoonloft/peach@v0.1.4/source/css/github-markdown-min.css" rel="stylesheet">
+  <link async href="https://cdn.jsdelivr.net/gh/wellmoonloft/peach@v0.1.4/source/css/highlight-min.css" rel="stylesheet">  
   <!-- fancybox -->
-  <link href="https://cdn.jsdelivr.net/gh/wellmoonloft/peach@v0.0.2/source/css/jquery.fancybox.min-3.5.2.css" rel="stylesheet">
-  <script async src="https://cdn.jsdelivr.net/gh/wellmoonloft/peach@v0.0.2/source/js/jquery.fancybox.min-3.5.2.js"></script>
-  <script>
-  // fancybox js
-  let fancyTimer = setInterval(function(){
-  if(!window.$){
-    return;
-  }
-  $(document).ready(function() {
-    $(".markdown-body img").each(function () {
-      if($(this).parent().get(0).tagName.toLowerCase() === "a") {
-        return;
-      }
-      // $(this).attr("data-fancybox", "gallery"); // if you add 'data-fancybox', img will display after showed
-      var element = document.createElement("a");
-      $(element).attr("data-fancybox", "gallery");
-      $(element).attr("style", "text-decoration: none; outline: none; border: 0px none transparent;");
-      // 判断是否启用了lazyload图片懒加载
-      if ($(this).attr("data-original")) {
-        $(element).attr("href", $(this).attr("data-original"));
-      } else {
-        $(element).attr("href", $(this).attr("src"));
-      }
-      $(this).wrap(element);
-    });
-
-    clearInterval(fancyTimer);
-  });
-  }, 10);    
-  </script>  
-  <% if(theme.gtag.enable) { %>
-  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <link href="https://cdn.jsdelivr.net/gh/wellmoonloft/peach@v0.1.4/source/css/fancy-min-3.5.2.css" rel="stylesheet">
+  <script async src="https://cdn.jsdelivr.net/gh/wellmoonloft/peach@v0.1.4/source/js/fancy-min-3.5.2.js"></script>
+  <script async src="https://cdn.jsdelivr.net/gh/wellmoonloft/peach@v0.1.4/source/js/fancybox.js"></script>
+  <% if(theme.gtag.enable) { %><!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=<%- theme.gtag.gtagkey %>"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-
     gtag('config', '<%- theme.gtag.gtagkey %>');
-  </script>
-  <% } %>
+  </script><% } %>
 </head>

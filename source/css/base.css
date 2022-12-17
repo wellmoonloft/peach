@@ -56,7 +56,7 @@ a:hover {
 }
 
 .header {
-  padding: 50px 0;
+  padding: 5rem 0 3rem 0;
 }
 
 .container {
@@ -169,7 +169,7 @@ a:hover {
 
 .avatar {
   text-align: center;
-  padding-bottom: 30px;
+  padding-bottom: 4rem;
   margin-left: calc(100vw - 100%);
 }
 
@@ -360,22 +360,23 @@ a:hover {
   color: #666;
 }
 
-.post-content {
-  padding-bottom: 1rem;
-}
-
 .prev-or-next {
   font-size: 1.5rem;
   display: flex;
   justify-content: space-between;
-  padding: 1rem 0;
+  padding: 3rem 0;
   margin: 3rem 0;
   border-top: 1px solid rgba(88,88,88,0.1);
 }
 
-.prev-or-next .post-foot-next, .prev-or-next .post-foot-prev {
-  white-space: nowrap;
+.post-foot-next {
+  text-align: right;
+  margin-left: 10px;
 }
+
+/* .prev-or-next .post-foot-next, .prev-or-next .post-foot-prev {
+  white-space: nowrap;
+} */
 
 .prev-or-next .post-attach {
   opacity: 0.9;

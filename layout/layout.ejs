@@ -1,44 +1,28 @@
 <!DOCTYPE html>
 <html lang="<%= config.language %>">
-<%- partial('_partial/header') %>
-  <body>
-    <div id="app">
-      <%- partial('_partial/navigation') %>       
-      <div class="flex-container">
-          <% if (page.type==="tags" ) { %>
-            <div class="container tag-index">
-              <div>
-                <%- list_tags({ class: "tag" }) %>
-              </div>
-            </div>
-          <% } %>
-          <% if (page.type==="categories" ) { %>
-            <div class="container category-index">
-              <div>
-                <%- list_categories({orderby: "length", order: -1}) %>
-              </div>
-            </div>
-          <% } %>
-          <% if (page.type==="friends" ) { %>
-            <%- partial('friends') %>
-          <% } %>
-          <% if(page.type==="about" ) { %>
-            <%- partial('about') %>
-          <% } %>
-          <% if(page.type==="gossip" ) { %>
-            <%- partial('gossip') %>
-          <% } %>          
-          <!-- 同时引入 post.ejs 和 index.ejs -->
-          <%- body %>
-          <%- partial('_partial/footer') %>
-      </div>
-      <%- partial('_partial/backtotop') %>
-      <%- partial('_partial/search') %>
-      <div style="position: fixed;right: 2.2rem;top: 2.2rem;font-weight: bold;font-size: 1.6rem;">
-        <a href="https://www.igerm.ee/en/">
-          EN
-        </a>
-      </div>
-    </div>
-  </body>
+<%- partial('_partial/header') %><body>
+  <div id="app">
+  <%- partial('_partial/navigation') %>       
+  <div class="flex-container"><% if (page.type==="tags" ) { %><div class="container tag-index">
+  <div><%- list_tags({ class: "tag" }) %></div></div>
+  <% } if (page.type==="categories" ) { %>
+  <div class="container category-index">
+  <div><%- list_categories({orderby: "length", order: -1}) %></div></div>
+  <% } if (page.type==="friends" ) { %>
+  <%- partial('friends') %>
+  <% } if(page.type==="about" ) { %>
+  <%- partial('about') %>
+  <% } if(page.type==="gossip" ) { %>
+  <%- partial('gossip') %>
+  <% } %>          
+  <!-- 同时引入 post.ejs 和 index.ejs -->
+  <%- body %>
+  <%- partial('_partial/footer') %>
+  </div>
+  <div style="position: fixed;right: 2.2rem;top: 2.2rem;font-weight: bold;font-size: 1.6rem;">
+  <% if (config.language==="en" ) { %><a href="https://www.igerm.ee/">中</a><% } else { %><a href="https://www.igerm.ee/en/">EN</a><% } %>
+  </div><%- partial('_partial/backtotop') %>
+  <%- partial('_partial/search') %>
+  </div>
+</body>
 </html>
