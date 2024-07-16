@@ -32,7 +32,10 @@ var searchFunc = function (path, search_id, content_id) {
   var $resultContent = document.getElementById(content_id);
   if (document.documentElement.lang == "en") { 
     $resultContent.innerHTML = "<ul><span class='local-search-empty'>Index file is being loaded, please wait...<span></ul>";
-  }else{
+  }else if (document.documentElement.lang == "jp") {
+    $resultContent.innerHTML = "<ul><span class='local-search-empty'>最初の検索中、インデックス ファイルをロードしています、お待ちください......<span></ul>";
+  }
+  else{
     $resultContent.innerHTML = "<ul><span class='local-search-empty'>首次搜索，正在载入索引文件，请稍后...<span></ul>";
   }
   $.ajax({
@@ -120,7 +123,9 @@ var searchFunc = function (path, search_id, content_id) {
         if (str.indexOf('<li>') === -1) {
           if (document.documentElement.lang == "en") { 
             return $resultContent.innerHTML = "<ul><span class='local-search-empty'>Content was not found, please try to change the search term.<span></ul>";
-          }else{
+          } else if (document.documentElement.lang == "jp") {
+            return $resultContent.innerHTML = "<ul><span class='local-search-empty'>コンテンツが見つかりませんでした。検索用語を変更してみてください。<span></ul>";
+          }  else{
             return $resultContent.innerHTML = "<ul><span class='local-search-empty'>没有找到内容，请尝试更换检索词。<span></ul>";
           }          
         }
@@ -145,6 +150,8 @@ var getSearchFile = function() {
   var path = "";
   if (document.documentElement.lang == "en") { 
     path = "/en/search.xml";
+  }else if (document.documentElement.lang == "jp") { 
+    path = "/jp/search.xml";
   }else{
     path = "/search.xml";
   }
